@@ -2,12 +2,15 @@
 
 In priority order. Items in **Now** are needed before any real data goes in.
 
+The current build is a static GitHub Pages site: every viewer's data lives in their own browser. The first step to real use is a shared backend
+(for example Supabase/Postgres in an Australian region, or the earlier Next.js + SQLite version on a small server) so a team works from one database.
+
 ## Now: production readiness
 - [ ] **Authentication & roles**: consultant / manager / admin. Scope "my" views to the signed-in user (actions currently default to consultant #1)
 - [ ] **Audit log**: who viewed, changed, exported or erased what
-- [ ] **Hosting**: HTTPS, Australian region, nightly encrypted backups. Consider moving to Postgres (the schema is portable)
-- [ ] **Validation & error states** on all forms (server-side validation exists; friendly inline errors don't)
-- [ ] **Automated tests**: server actions (stage moves, placement fee calculations) and a Playwright smoke test
+- [ ] **Shared backend**: move from browser storage to a hosted database (HTTPS, Australian region, nightly encrypted backups). The data model in `assets/store.js` maps one-to-one to tables
+- [ ] **Validation & error states** on all forms (browser validation only today)
+- [ ] **Automated tests**: store logic (stage moves, placement fee calculations) and a Playwright smoke test
 
 ## Next: consultant productivity
 - [ ] **CV upload & parsing**: attach CVs to candidates, extract skills and work history
